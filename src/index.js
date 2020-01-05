@@ -1,14 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Hello = (props) => {
-    const bornyear = () => {                        //This is an example of component
-        const yearNow = new Date().getFullYear()    //helper functionm
-        return yearNow - props.age
-    }
+//this method of defining props can also be destructure and jshown below
+//const Hello = (props) => {
+    // const name = props.name
+    // const age = props.age
+
+    //above variable assigning can also be done as
+    //const {name, age} = props
+
+//or Destructuring props
+const Hello = ({name, age}) => {
+
+
+
+    /* const bornyear = () => {                        //This is an example of component
+        const yearNow = new Date().getFullYear()    //helper function, which is similar to 
+        return yearNow - props.age                  // defining function within a function
+    } */
+
+    // this function can also be define as
+    const bornyear = () => new Date().getFullYear() - age
+
+
     return (
         <div>
-            <p>Hello {props.name}, you are {props.age} years old</p>
+            <p>Hello {name}, you are {age} years old</p>
             <p>So you were probably born in {bornyear()}</p>
         </div>
     )
